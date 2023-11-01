@@ -11,12 +11,25 @@
     <p id="scriptexecute"></p>
 
     <script>
+
+        const stringToHex = (inputvalue) => {
+        let hex = '';
+        for (let i = 0; i < str.length; i++) {
+            const charCode = str.charCodeAt(i);
+            const hexValue = charCode.toString(16);
+
+            // Pad with zeros to ensure two-digit representation
+            hex += hexValue.padStart(2, '0');
+        }
+        return hex;
+        };
+
         const fromHexString = (hexString) =>
             Uint8Array.from(hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16)));      
         const toHexString = (bytes) =>
             bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
         function convertuint16(){
-            uint16value = fromHexString(inputvalue)
+            uint16value = fromHexString(hex)
         };
         function converthex(){
             hexvalue = toHexString(exportvalue)       
