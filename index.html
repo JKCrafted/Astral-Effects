@@ -1,0 +1,29 @@
+<head>
+    <title>Astral Effects</title>
+    <meta name="author" content="JKCrafted" />
+</head>
+<body>
+    <form id="edittingscript">
+        <input type="text" name="inputvalue">
+        <input type="submit" value="Submit">
+    </form>
+    
+    <p id="scriptexecute"></p>
+
+    <script>
+        const fromHexString = (hexString) =>
+            Uint8Array.from(hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16)));      
+        const toHexString = (bytes) =>
+            bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
+        function convertuint16(){
+            uint16value = fromHexString(inputvalue)
+        };
+        function converthex(){
+            hexvalue = toHexString(exportvalue)       
+        };
+        document.getElementById("scriptexecute").innerHTML = 5 + 6;
+
+    </script>
+
+
+</body>
