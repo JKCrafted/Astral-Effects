@@ -3,10 +3,13 @@
     <meta name="author" content="JKCrafted" />
 </head>
 <body>
-
-    <input type="file" name="inputvalue">
+    <form id="edittingscript">
+        <input type="file" name="inputvalue">
+        <input type="submit" value="Submit">
+    </form>
     
-    <p id="scriptexecute"></p>
+    <p id="scriptexecute1"></p>
+    <p id="scriptexecute2"></p>
 
     <script>
 
@@ -30,9 +33,10 @@
             uint16value = fromHexString(hex)
         };
         function converthex(){
-            hexvalue = toHexString(exportvalue)       
+            hexvalue = toHexString(uint16value)       
         };
-        document.getElementById("scriptexecute").innerHTML = 5 + 6;
+        document.getElementById("scriptexecute1").innerHTML = hexvalue;
+        document.getElementById("scriptexecute2").innerHTML = uint16value;
 
     </script>
 
