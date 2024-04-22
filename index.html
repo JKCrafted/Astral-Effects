@@ -29,12 +29,8 @@
             Uint8Array.from(hexString.match(/.{1,2}/g).map((byte) => parseInt(byte, 16)));      
         const toHexString = (bytes) =>
             bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-        function convertuint16(){
-            uint16value = fromHexString(hex)
-        };
-        function converthex(){
-            var hexvalue1 = toHexString(uint16value)       
-        };
+        uint16value = fromHexString(hex);
+        hexvalue1 = toHexString(uint16value);       
         document.getElementById("scriptexecute1").innerHTML = hexvalue1;
         document.getElementById("scriptexecute2").innerHTML = uint16value;
 
