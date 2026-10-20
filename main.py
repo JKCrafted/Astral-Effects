@@ -1,4 +1,15 @@
 import copy
+
+
+def change_colour_hex(position, new_hex):
+    global hex_list
+    if len(new_hex) == 2: hex_list[position] = new_hex
+    elif len(new_hex) == 4: 
+        hex_list[position] = new_hex[:2]
+        hex_list[position+1] = new_hex[2:]
+
+
+
 file_path = input("File Path (with extension): ")
 
 with open(file_path, 'rb') as fp:
@@ -6,7 +17,7 @@ with open(file_path, 'rb') as fp:
     
     hex_str = ''.join(['{:02X}'.format(b) for b in a])
 
-    target_points = []
+    colour_data = []
 
     hex_list = []
 
@@ -29,12 +40,12 @@ with open(file_path, 'rb') as fp:
             rgba["b"] = {"pos":val-5,"hex":[hex_list[val-5],hex_list[val-4]]}
             rgba["a"] = {"pos":val-3,"hex":[hex_list[val-3],hex_list[val-2],hex_list[val-1],hex_list[val]]}
             
-            target_points.append(rgba)
+            colour_data.append(rgba)
             val +=37
         else: val += 1
 
 
-    print(target_points)
+    print(colour_data)
 
 
 
