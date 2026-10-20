@@ -2,13 +2,16 @@ import copy
 from PIL import ImageColor
 
 
-def change_colour_hex(position, new_hex):
+def import_colour_hex(position, new_hex):
     global hex_list
     if len(new_hex) == 2: hex_list[position] = new_hex
     elif len(new_hex) == 4: 
         hex_list[position] = new_hex[:2]
         hex_list[position+1] = new_hex[2:]
 
+
+def rgb_to_hex(tup):
+    return ''.join(f"{value:02x}" for value in tup)
 
 
 file_path = input("File Path (with extension): ")
@@ -54,4 +57,4 @@ with open(file_path, 'rb') as fp:
 for colour_index in range(len(colour_data)):
     colour = colour_data[colour_index]
 
-    print(f'Colour No.{colour_index} = {ImageColor.getrgb("#"+colour["r"]["hex"][0]+colour["g"]["hex"][0]+colour["b"]["hex"][0])} | Intensity = {ImageColor.getrgb("#"+colour["r"]["hex"][1]+colour["g"]["hex"][1]+colour["b"]["hex"][1])}')
+    print(f'Colour No.{colour_index} RGB = {ImageColor.getrgb("#"+colour["r"]["hex"][0]+colour["g"]["hex"][0]+colour["b"]["hex"][0])} | Intensity = {ImageColor.getrgb("#"+colour["r"]["hex"][1]+colour["g"]["hex"][1]+colour["b"]["hex"][1])}')
