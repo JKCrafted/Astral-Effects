@@ -1,4 +1,5 @@
 import copy
+from PIL import ImageColor
 
 
 def change_colour_hex(position, new_hex):
@@ -49,3 +50,8 @@ with open(file_path, 'rb') as fp:
 
 
 
+
+for colour_index in range(len(colour_data)):
+    colour = colour_data[colour_index]
+
+    print(f'Colour No.{colour_index} = {ImageColor.getrgb("#"+colour["r"]["hex"][0]+colour["g"]["hex"][0]+colour["b"]["hex"][0])} | Intensity = {ImageColor.getrgb("#"+colour["r"]["hex"][1]+colour["g"]["hex"][1]+colour["b"]["hex"][1])}')
